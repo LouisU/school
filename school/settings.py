@@ -25,8 +25,8 @@ SECRET_KEY = 'f2e1&-ajkl9v!ghya2tud1hf($2!fee9v_9@$#gczz#80^f7a='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['www.meihao365.net', '111.231.235.153:80']
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['www.meihao365.net', '111.231.235.153:80']
+# ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
@@ -82,20 +82,20 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'test',
-        # 'HOST': '10.66.205.174',
-        # 'PORT': '3306',
-        'HOST': 'gz-cdb-5njn94uv.sql.tencentcdb.com',
-        'PORT': '63229',
+        'HOST': '10.66.205.174',
+        'PORT': '3306',
+        # 'HOST': 'gz-cdb-5njn94uv.sql.tencentcdb.com',
+        # 'PORT': '63229',
         'USER': 'root',
         'PASSWORD': 'Meihao365@net'
     },
     'sqldb': {
         'ENGINE': 'sqlserver',
         'NAME': 'Qizhong',
-        # 'HOST': '10.66.223.205',
-        # 'PORT': '1433',
-        'HOST': '111.231.235.153',
-        'POST': '1234',
+        'HOST': '10.66.223.205',
+        'PORT': '1433',
+        # 'HOST': '111.231.235.153',
+        # 'POST': '1234',
         'USER': 'mhmt',
         'PASSWORD': 'Meihao365.net'
     }
