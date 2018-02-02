@@ -66,7 +66,7 @@ class Sys_UserInfo(models.Model):
 
 
 class User(models.Model):
-    id = models.AutoField(primary_key=True)
+    # id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30, null=True)
     cardno = ''
 
@@ -74,7 +74,7 @@ class User(models.Model):
         import pymysql
         msdb = pymssql.connect('10.66.223.205', 'mhmt', 'Meihao365.net', 'Qizhong')
         ms_cursor = msdb.cursor()
-        sql = 'select UserCardNo from sys_userinfo where sys_userinfoid=%d' % self.id
+        sql = 'select UserCardNo from sys_userinfo where sys_userinfoid=%d' % self.pk
         ms_cursor.execute()
         row = ms_cursor.fetchone()
         self.cardno = row[0]

@@ -2,6 +2,7 @@
 .sqlite3
 *.pyc
 dev_*
+settings.py
 
 ### other IDE ###
 .idea/

@@ -2,15 +2,16 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-import pymssql
+# import pymssql
 from . import models
 # Create your views here.
 
-#
-def testmssql(request):
 
-    user = models.User.objects.get(id=7)
-    return user.name
+def testmssql(request):
+    adduser = models.User.objects.create(name='a')
+    user = models.User.objects.filter(name='a')
+    userinfoid = user[0].pk
+    return user.get_cardno()
 
 #     conn = pymssql.connect('10.66.223.205', 'mhmt', 'Meihao365.net', 'Qizhong')
 #     cursor = conn.cursor()
