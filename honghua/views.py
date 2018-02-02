@@ -7,10 +7,10 @@ from . import models
 
 
 def testmssql(request):
-    adduser = models.User.objects.create(name='a')
+
     user = models.User.objects.filter(name='a')
-    userinfoid = user[0].pk
-    return
+    print user[0].cardno
+    return True
 
 #     conn = pymssql.connect('10.66.223.205', 'mhmt', 'Meihao365.net', 'Qizhong')
 #     cursor = conn.cursor()

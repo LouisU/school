@@ -64,21 +64,34 @@ class Sys_UserInfo(models.Model):
     # [PostLevelID] = models.IntegerField(null=True, default=0) #int DEFAULT ((0)) NULL,
 
 
-class User(models.Model):
-    # id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=30, null=True)
-    cardno = ''
-
-    def get_cardno(self):
+class UserManager(models.Manager):
+    def get_cardno(self, pk):
         import pymssql
         msdb = pymssql.connect('10.66.223.205', 'mhmt', 'Meihao365.net', 'Qizhong')
         ms_cursor = msdb.cursor()
-        sql = 'select UserCardNo from sys_userinfo where sys_userinfoid=%d' % self.pk
+        sql = 'select UserCardNo from sys_userinfo where sys_userinfoid=%d' % pk
         ms_cursor.execute()
         row = ms_cursor.fetchone()
         self.cardno = row[0]
 
         return self.cardno
+
+
+class User(models.Model):
+    # id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=30, null=True)
+    cardno = UserManager()
+
+    # def get_cardno(self):
+    #     import pymssql
+    #     msdb = pymssql.connect('10.66.223.205', 'mhmt', 'Meihao365.net', 'Qizhong')
+    #     ms_cursor = msdb.cursor()
+    #     sql = 'select UserCardNo from sys_userinfo where sys_userinfoid=%d' % self.pk
+    #     ms_cursor.execute()
+    #     row = ms_cursor.fetchone()
+    #     self.cardno = row[0]
+    #
+    #     return self.cardno
 
 
 
