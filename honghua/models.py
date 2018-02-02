@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 from django.db import models
-
 # Create your models here.
 
 
@@ -71,7 +70,7 @@ class User(models.Model):
     cardno = ''
 
     def get_cardno(self):
-        import pymysql
+        import pymssql
         msdb = pymssql.connect('10.66.223.205', 'mhmt', 'Meihao365.net', 'Qizhong')
         ms_cursor = msdb.cursor()
         sql = 'select UserCardNo from sys_userinfo where sys_userinfoid=%d' % self.pk
