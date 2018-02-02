@@ -75,22 +75,27 @@ WSGI_APPLICATION = 'school.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #         #'ENGINE': 'django.db.backends.sqlite3',
+    #         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # },
     'default': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#	'ENGINE': 'sqlserver',
-#	'NAME': 'Qizhong',
-#	'HOST': '10.66.223.205',
-#	'PORT': '1433',
-#	'USER': 'mhmt',
-#	'PASSWORD': 'Meihao365.net'
-       'ENGINE': 'django.db.backends.mysql',
-       'NAME': 'test',
-       'HOST': '10.66.205.174',
-       'PORT': '3306',
-       'USER': 'root',
-       'PASSWORD': 'Meihao365@net'
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'test',
+        'HOST': '10.66.205.174',
+        'PORT': '3306',
+        'USER': 'root',
+        'PASSWORD': 'Meihao365@net'
+    },
+    'sqldb': {
+        'ENGINE': 'sqlserver',
+        'NAME': 'Qizhong',
+        'HOST': '10.66.223.205',
+        'PORT': '1433',
+        'USER': 'mhmt',
+        'PASSWORD': 'Meihao365.net'
     }
+
 }
 
 
