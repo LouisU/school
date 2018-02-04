@@ -64,23 +64,40 @@ class Sys_UserInfo(models.Model):
     # [PostLevelID] = models.IntegerField(null=True, default=0) #int DEFAULT ((0)) NULL,
 
 
-class UserManager(models.Manager):
-    def get_cardno(self, pk):
-        import pymssql
-        msdb = pymssql.connect('111.231.235.153:1234', 'mhmt', 'Meihao365.net', 'Qizhong')
-        ms_cursor = msdb.cursor()
-        sql = 'select UserCardNo from sys_userinfo where sys_userinfoid=%d' % pk
-        ms_cursor.execute()
-        row = ms_cursor.fetchone()
-        self.cardno = row[0]
-
-        return self.cardno
+# class UserInfoManager(models.Manager):
+#     @property
+#     def get_cardno(self):
+#         import pymssql
+#         msdb = pymssql.connect('111.231.235.153:1234', 'mhmt', 'Meihao365.net', 'Qizhong')
+#         ms_cursor = msdb.cursor()
+#         sql = 'select UserCardNo from sys_userinfo where sys_userinfoid={:d}'.format(self.pk)
+#         ms_cursor.execute()
+#         row = ms_cursor.fetchone()
+#         print row[0]
+#
+#         return self.cardno
 
 
 class UserInfo(models.Model):
     # id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30, null=True)
-    cardno = UserManager()
+    # cardno = models.CharField(max_length=30, null=True)
+    cardno = ''
+
+    def get_cardno(self):
+        import pymssql
+        msdb = pymssql.connect('111.231.235.153:1234', 'mhmt', 'Meihao365.net', 'Qizhong')
+        ms_cursor = msdb.cursor()
+        sql = 'select UserResnumber from sys_userinfo where sys_userinfoid={:d}'.format(self.pk)
+        ms_cursor.execute(sql)
+        row = ms_cursor.fetchone()
+        self.cardno = row[0]
+        print self.cardno
+
+        return True
+
+    def __str__(self):  # __unicode__ on Python 2
+        return self.name
 
     # def get_cardno(self):
     #     import pymssql
@@ -97,6 +114,5 @@ class UserInfo(models.Model):
 class louis(models.Model):
     city = models.CharField(max_length=50, null=True)
     livein = models.CharField(max_length=50, null=True)
-
 
 
