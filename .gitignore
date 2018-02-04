@@ -2,8 +2,8 @@
 .sqlite3
 *.pyc
 *dev_*
-school/settings.py
-school/wsgi.py
+*settings.py
+*wsgi.py
 
 ### other IDE ###
 .idea/
