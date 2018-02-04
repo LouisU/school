@@ -67,7 +67,7 @@ class Sys_UserInfo(models.Model):
 class UserManager(models.Manager):
     def get_cardno(self, pk):
         import pymssql
-        msdb = pymssql.connect('10.66.223.205', 'mhmt', 'Meihao365.net', 'Qizhong')
+        msdb = pymssql.connect('111.231.235.153:1234', 'mhmt', 'Meihao365.net', 'Qizhong')
         ms_cursor = msdb.cursor()
         sql = 'select UserCardNo from sys_userinfo where sys_userinfoid=%d' % pk
         ms_cursor.execute()
@@ -77,7 +77,7 @@ class UserManager(models.Manager):
         return self.cardno
 
 
-class User(models.Model):
+class UserInfo(models.Model):
     # id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30, null=True)
     cardno = UserManager()
@@ -92,6 +92,11 @@ class User(models.Model):
     #     self.cardno = row[0]
     #
     #     return self.cardno
+
+
+class louis(models.Model):
+    city = models.CharField(max_length=50, null=True)
+    livein = models.CharField(max_length=50, null=True)
 
 
 
