@@ -1,9 +1,9 @@
 # school/.gitignore
 .sqlite3
 *.pyc
-dev_*
-settings.py
-wsgi.py
+*dev_*
+school/settings.py
+school/wsgi.py
 
 ### other IDE ###
 .idea/
