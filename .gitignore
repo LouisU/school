@@ -3,6 +3,7 @@
 *.pyc
 dev_*
 settings.py
+wsgi.py
 
 ### other IDE ###
 .idea/
