@@ -25,7 +25,7 @@ SECRET_KEY = 'f2e1&-ajkl9v!ghya2tud1hf($2!fee9v_9@$#gczz#80^f7a='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'www.meihao365.net', u'111.231.235.153:80']
+ALLOWED_HOSTS = [u'www.meihao365.net', '111.231.235.153:80']
 # ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
